@@ -8,6 +8,5 @@ RUN go build -o websocket-exec .
 
 
 FROM alpine:latest
-WORKDIR /root/
-COPY --from=websocket_builder /srv/application/websocket-exec ./
-CMD ["./websocket-exec"]
+COPY --from=websocket_builder /srv/application/websocket-exec /root/
+CMD ["/root/websocket-exec"]
